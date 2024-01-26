@@ -1,0 +1,20 @@
+name: clanspawn
+version: 0.0.1
+main: org.destplay.clanspawn.Clanspawn
+api-version: '1.16'
+commands:
+  list:
+    description:     Список моих аренд
+    usage: /<command>
+  create:
+    description:     Список моих аренд
+    usage: /<command> [name]
+  remove:
+    description:     Список всех аренд для op
+    usage: /<command> [name]
+  setspawn:
+    description:     Список всех аренд для op
+    usage: /<command> [name]
+  tp:
+    description:     Список всех аренд для op
+    usage: /<command> [name]
