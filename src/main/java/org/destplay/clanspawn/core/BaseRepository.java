@@ -17,7 +17,11 @@ public class BaseRepository<T extends IModelRepository> {
 
     public T FindByName(String name) {
         for (T clan : myList) {
-            if (clan.name.equals(name)) {
+
+            System.out.println("----- [BaseRepository] FindByName in " + clan.GetName());
+
+            if (clan.GetName().equals(name)) {
+                System.out.println("----- [BaseRepository] EQ!");
                 return clan;
             }
         }
@@ -73,6 +77,7 @@ public class BaseRepository<T extends IModelRepository> {
     public void Init(File dataFoolder) {
 
         if (!dataFoolder.exists()) dataFoolder.mkdirs();
+
 
 
         file = new File(dataFoolder, GetFileName() + ".json");

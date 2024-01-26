@@ -4,7 +4,7 @@ import org.destplay.clanspawn.contracts.Clan;
 import org.destplay.clanspawn.core.BaseRepository;
 
 
-public class ClanRepository extends BaseRepository<Clan> {
+public final class ClanRepository extends BaseRepository<Clan> {
 
     @Override
     public Class<Clan[]> GetClass() {

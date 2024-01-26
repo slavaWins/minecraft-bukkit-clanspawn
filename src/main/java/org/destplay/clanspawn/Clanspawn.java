@@ -14,7 +14,8 @@ public final class Clanspawn extends JavaPlugin {
     @Override
     public void onEnable() {
         ConfigHelper.Init(getDataFolder());
-        ClanRepository.Link().Init(getDataFolder());
+
+        ClanRepository.Link().Init(getDataFolder()); //инциализация репозитория
 
         getServer().getPluginManager().registerEvents(new SignListener(), this);
 
@@ -65,6 +66,11 @@ public final class Clanspawn extends JavaPlugin {
 
         if (command.getName().equalsIgnoreCase("tp") && args.length == 1) {
             CommandsHandle.TpTo(sender, args[0]);
+            return true;
+        }
+
+        if (command.getName().equalsIgnoreCase("setspawn") && args.length == 1) {
+            CommandsHandle.SetSpawn(sender, args[0]);
             return true;
         }
 

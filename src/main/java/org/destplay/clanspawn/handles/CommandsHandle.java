@@ -37,6 +37,7 @@ public class CommandsHandle {
 
         player.teleport(loc);
 
+        sender.sendMessage(ChatHelper.PREFIX + "Вы телепортированы на спавн клана");
     }
 
     public static void ListCommand(CommandSender sender) {
@@ -94,5 +95,38 @@ public class CommandsHandle {
 
 
         sender.sendMessage(ChatHelper.PREFIX + " Клан удален");
+    }
+
+    public static void SetSpawn(CommandSender sender, String arg) {
+
+
+        sender.sendMessage(ChatHelper.PREFIX + " 1 ");
+        sender.sendMessage(ChatHelper.PREFIX + " 1.= "+arg);
+        Clan clan = ClanRepository.Link().FindByName(arg);
+
+        sender.sendMessage(ChatHelper.PREFIX + " 2");
+        if (clan == null) {
+            sender.sendMessage(ChatHelper.PREFIX + " Такой клан не найден");
+            return;
+        }
+
+        sender.sendMessage(ChatHelper.PREFIX + " 3");
+        Player player = (Player) sender;
+
+        sender.sendMessage(ChatHelper.PREFIX + " 4");
+        Location location = player.getLocation();
+
+        sender.sendMessage(ChatHelper.PREFIX + " 5");
+
+        clan.x = location.getX();
+        clan.y = location.getY();
+        clan.z = location.getZ();
+        sender.sendMessage(ChatHelper.PREFIX + " 6");
+        clan.world = location.getWorld().getName();
+
+        sender.sendMessage(ChatHelper.PREFIX + " 7");
+        ClanRepository.Link().Save(ClanRepository.Link().Get());
+
+        sender.sendMessage(ChatHelper.PREFIX + " Спавн клана установлен");
     }
 }
