@@ -23,7 +23,6 @@ public class SignListener implements Listener {
 
 
 
-        ChatColor prefixColor = ChatColor.GOLD;
-        event.setFormat(ChatColor.GOLD + "[CLAN] " + ChatColor.RESET + playerName + ": " + originalMessage);
+        event.setFormat(ChatColor.YELLOW + "[CLAN] " + ChatColor.RESET + playerName + ": " + originalMessage);
     }
 }
